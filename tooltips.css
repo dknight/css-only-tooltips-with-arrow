@@ -1,0 +1,70 @@
+/* Container should have position relative. So we can position with 'position:absolute' our tooltip as we want. */
+.with-tooltip {
+  position:relative;
+}
+.with-tooltip .tooltip {
+  /* nowrap will always show words in one line */
+  white-space:nowrap;
+  
+  /* to be sure that tooltip is always block-level element */
+  display:block;
+  
+  /* By default it should be hidden */
+  visibility: hidden;
+  opacity:0;
+  
+  /* Make position absolute */
+  position:absolute;
+  top:-3em;
+  
+  /* just styling can be changed for your needs */
+  min-width:200px;
+  color:#333;
+  -webkit-border-radius:3px;
+     -moz-border-radius:3px;
+      -ms-border-radius:3px;
+          border-radius:3px;
+  /* Add transtions for a smoother effect. */
+  -webkit-transition: all 0.2s linear 0.1s;
+     -moz-transition: all 0.2s linear 0.1s;
+      -ms-transition: all 0.2s linear 0.1s;
+       -o-transition: all 0.2s linear 0.1s;
+          transition: all 0.2s linear 0.1s;
+  background: #ffc;
+  padding: 5px;
+  border:1px solid #ccc;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* State after hover, active, etc */
+.with-tooltip:hover .tooltip,
+.with-tooltip:active .tooltip,
+.with-tooltip:focus .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top:-3em;
+}
+
+/* CSS 3 arrow please visit http://cssarrowplease.com/ for more details */
+.with-tooltip .tooltip:after, .with-tooltip .tooltip:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  position: absolute;
+}
+
+.with-tooltip .tooltip:after {
+  border-color: rgba(255, 255, 204, 0);
+  border-top-color: #ffc;
+  border-width: 5px;
+  left: 15%;
+  margin-left: -5px;
+}
+.with-tooltip .tooltip:before {
+  border-color: rgba(51, 51, 51, 0);
+  border-top-color: #ccc;
+  border-width: 6px;
+  left: 15%;
+  margin-left: -6px;
+}
